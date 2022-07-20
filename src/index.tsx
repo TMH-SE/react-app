@@ -1,5 +1,6 @@
-import { StrictMode } from 'react'
+import { StrictMode, Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
@@ -7,7 +8,11 @@ import reportWebVitals from './reportWebVitals'
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
 	<StrictMode>
-		<App />
+		<BrowserRouter>
+			<Suspense fallback={<div>Loading...</div>}>
+				<App />
+			</Suspense>
+		</BrowserRouter>
 	</StrictMode>,
 )
 
